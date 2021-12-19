@@ -7,6 +7,6 @@ load_dotenv('.env')
 X_TOKEN = os.environ.get('X_TOKEN')
 
 
-def get_token_header(x_token: str = Header(...)):
+async def get_token_header(x_token: str = Header(...)):
     if x_token != X_TOKEN:
-        raise HTTPException(status_code=401, detail="X-Token header invalid")
+        raise HTTPException(status_code=401, detail="X-Token header is invalid")
